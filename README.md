@@ -145,6 +145,44 @@ baseUri: https://dev.restapi.com/services/data/{version}
 
 ## _media types_ por omisión.
 
+Al especificar el nodo _mediaTypes_ se configura el tipo de medio por omisión para los _requests_ y _responses_ que tienen un cuerpo de mensaje. El valor de _mediaTypes_ debe ser una cadena o arreglo que represente el tipo de medio y aplica a los _requests_ que tienen cuerpo de mensaje, a los _responses_ esperados y a los ejemplos que usan la misma secuencia de _media types_.
+
+Por ejemplo, para especificar una _API_ que acepta y responde JSON, se realiza lo siguiente:
+
+````yaml
+#%RAML 1.0
+title: New API
+mediaType: application/json
+````
+
+Para una _API_ que acepta y responde JSON o XML:
+
+````yaml
+#%RAML 1.0
+title: New API
+mediaType: [ application/json, application/xml ]
+````
+
+Es posible definir un _mediaType_ explícitamente para sobreescribir el definido por omisión. En el siguiente ejemplo, la _API_ acepta y responde tanto JSON como XML, para el recurso `/send` se sobreescribe el _mediaType_ para que responda únicamente JSON.
+
+````yaml
+#%RAML 1.0
+title: New API
+mediaType: [ application/json, application/xml ]
+types:
+  Person:
+  Another:
+/list:
+  get:
+    responses:
+      200:
+        body: Person[]
+/send:
+  post:
+    body:
+      application/json:
+        type: Another
+````
 
 
 
