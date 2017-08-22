@@ -163,7 +163,8 @@ title: New API
 mediaType: [ application/json, application/xml ]
 ````
 
-Es posible definir un _mediaType_ explícitamente para sobreescribir el definido por omisión. En el siguiente ejemplo, la _API_ acepta y responde tanto JSON como XML, para el recurso `/send` se sobreescribe el _mediaType_ para que responda únicamente JSON.
+Es posible definir un _mediaType_ explícitamente para sobreescribir el definido por omisión.
+En el siguiente ejemplo, la _API_ acepta y responde tanto JSON como XML, para el recurso `/send` se sobreescribe el _mediaType_ para que responda únicamente JSON.
 
 ````yaml
 #%RAML 1.0
@@ -183,6 +184,102 @@ types:
       application/json:
         type: Another
 ````
+
+## Seguridad
+
+Al especificar el nodo _securedBy_, se configuran los esquemas de seguridad para cada método de cada recurso en la _API_. El valor del nodo debe ser un arreglo con los nombres de los esquemas de seguridad.
+
+Ejemplo:
+
+
+````yaml
+#%RAML 1.0
+title: Dropbox API
+version: 1
+baseUri: https://api.dropbox.com/{version}
+securedBy: [oauth_2_0]
+securitySchemes:
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
+  oauth_1_0: !include securitySchemes/oauth_1_0.raml
+/users:
+  get:
+    securedBy: [oauth_2_0, oauth_1_0]
+````
+
+
+# Definición de recursos
+
+Un recurso es identificado por su _URI_ relativo el cual debe iniciar con un slash ("/").
+Un recurso definido a nivel de raíz, es llamado recurso de alto nivel o _top-level resource_. Un recurso definido como hijo de otro recurso, es llamado  recurso anidado.
+
+
+Ejemplo de definición de recursos, `/gists` como recurso de alto nivel y `/public` como recurso anidado:
+
+````yaml
+#%RAML 1.0
+title: GitHub API
+version: v3
+baseUri: https://api.github.com
+/gists:
+  displayName: Gists
+  /public:
+    displayName: Public Gists
+````
+
+
+Un recurso anidado puede a su vez tener un recurso hijo, de tal forma que existan recursos con múltiples anidamientos. Como en el siguiente ejemplo:
+
+
+````yaml
+#%RAML 1.0
+title: GitHub API
+version: v3
+baseUri: https://api.github.com
+/user:
+/users:
+  /{userId}:
+    uriParameters:
+      userId:
+        type: integer
+    /followers:
+    /following:
+    /keys:
+      /{keyId}:
+        uriParameters:
+          keyId:
+            type: integer
+````
+
+Las _URIs_ resueltas para los recursos arriba descritos quedan como sigue, siguiendo el mismo orden en que fueron declaradas.
+
+````text
+https://api.github.com/user
+https://api.github.com/users
+https://api.github.com/users/{userId}
+https://api.github.com/users/{userId}/followers
+https://api.github.com/users/{userId}/following
+https://api.github.com/users/{userId}/keys
+https://api.github.com/users/{userId}/keys/{keyId}
+````
+
+> NOTA: La definición de las _URIs_ deben ser únicas.
+
+El siguiente ejemplo muestra _URIs_ duplicadas:
+
+````yaml
+/users:
+  /foo:
+/users/foo:
+````
+
+En cambio, la siguiente definición es correcta:
+
+````yaml
+/users/{userId}:
+/users/{username}:
+/users/me:
+````
+
 
 
 
