@@ -284,7 +284,7 @@ En cambio, la siguiente definición es correcta:
 
 Ejemplo de definición de _API_ para el recurso login.
 
-[Ver ejemplo](./examples/login/login.raml)
+[./examples/login/login.raml](./examples/login/login.raml)
 
 
 
