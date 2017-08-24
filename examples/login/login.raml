@@ -31,6 +31,15 @@ types:
         body:
             example:
               !include responses/400.json
+      401:
+        description: Unauthorized!
+        body:
+            example: |
+                  {
+                      "success": "false",
+                      "message": "Invalid authentication credentials",
+                      "data": {}
+                  }
       500:
         description: Internal Server Error
         body:
