@@ -280,7 +280,11 @@ En cambio, la siguiente definición es correcta:
 /users/me:
 ````
 
+# RAML en acción.
 
+Ejemplo de definición de _API_ para el recurso login.
+
+[Ver ejemplo](./examples/login/login.raml)
 
 
 

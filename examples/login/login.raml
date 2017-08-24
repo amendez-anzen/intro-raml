@@ -1,0 +1,38 @@
+#%RAML 1.0
+title: Mi API para mobile.
+version: v1
+baseUri: mobile.{apiMode}.domain.com/{version}
+baseUriParameters: 
+  apiMode: 
+      description: Para usar el ambiente sandbox agregue 'sandbox-api', en otro caso use 'api'.
+      enum: [ sandbox-api, api ]
+mediaType: application/json
+protocols: HTTP
+types:
+  User: !include types/User.json
+
+# Un recurso se define como una URI, inicia con slash
+/login:
+  displayName: User Authentication
+  description: El recurso _login_ sirve para realizar la autenticacion de usuarios (Acepta notación markdown).
+  post:
+    description: Revisa si las credenciales del usuario son correctas.
+    body:
+        type: User
+        example:
+          !include data/form.json
+    responses:
+      200:
+        body:
+            example:
+              !include responses/200.json
+      400:
+        description: Bad Request
+        body:
+            example:
+              !include responses/400.json
+      500:
+        description: Internal Server Error
+        body:
+            example:
+              !include responses/500.json

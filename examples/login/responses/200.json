@@ -1,0 +1,9 @@
+{
+    "success": "true",
+    "message": "The user is authenticated",
+    "data": {
+        "first_name": "Lenin",
+        "last_name": "Meza",
+        "email": "lmeza@anzen.com.mx"
+    }
+}
