@@ -25,6 +25,7 @@ types:
                     Challenge: 12132122
         responses: 
             201:
+                description: Inicio de sesion exitoso.
                 body:
                     type: Respuesta
                     examples:
@@ -38,6 +39,7 @@ types:
                             codigo: 201
                             redirect: api/acceso-privado
             401:
+                description: Fallo al ingresar credenciales de usuario.
                 body:
                     type: Respuesta
                     example: #Ejemplo simple
@@ -55,10 +57,12 @@ types:
             type: CambioPassword
         responses: 
             201:
+                description: Respuesta exitosa al cambiar el password.
                 body:
                     type: RespuestaCambioPassword
                     example: !include examples/201-cambio-password.json
             401:
+                description: Para el status 401 se maneja como errores en validaciones en el backend.
                 body:
                     type: RespuestaCambioPassword
                     examples:
