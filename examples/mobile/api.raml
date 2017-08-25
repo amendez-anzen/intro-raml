@@ -29,10 +29,14 @@ types:
                 body:
                     type: Respuesta
                     examples:
+                        #Este primer ejemplo es una buena referencia y describe mejor un caso.
                         primer-ingreso: #Identificador para este ejemplo.
-                            codigo: 201
-                            redirect: /api/user/cambiar-password
-                        clausulas-sin-firmar:
+                            description: Respuesta cuando se utiliza la app por primera vez.
+                            displayName: primer inicio de sesion
+                            value:
+                                codigo: 201
+                                redirect: /api/user/cambiar-password
+                        clausulas-sin-firmar: #Se especifica explicitamente el objeto JSON.
                             codigo: 201
                             redirect: api/user/clausulas
                         clausulas-firmadas:
