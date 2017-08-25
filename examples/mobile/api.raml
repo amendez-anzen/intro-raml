@@ -1,0 +1,70 @@
+#RAML 1.0
+title: API mobile
+description: Esta es una _API_ de ejemplo que describe el inicio de sesion y cambio de password.
+version: v1
+baseUri: mobile.api.com/{version}
+mediaType: application/json
+protocols: HTTPS
+
+types:
+    CredencialUsuario: !include types/CredencialUsuario.raml
+    CambioPassword: !include types/CambioPassword.raml
+    Respuesta: !include types/Respuesta.raml
+    RespuestaCambioPassword: !include types/RespuestaCambioPassword.raml
+/user/login:
+    description: Recurso para validar credencial de usuario.
+    post:
+        description: |
+            Metodo por el cual se validan credenciales de un usuario.
+        body: 
+            type: CredencialUsuario
+            example:
+                example:
+                    usuario: Juan Perez
+                    password: abc123
+                    Challenge: 12132122
+        responses: 
+            201:
+                body:
+                    type: Respuesta
+                    examples:
+                        primer-ingreso: #Identificador para este ejemplo.
+                            codigo: 201
+                            redirect: /api/user/cambiar-password
+                        clausulas-sin-firmar:
+                            codigo: 201
+                            redirect: api/user/clausulas
+                        clausulas-firmadas:
+                            codigo: 201
+                            redirect: api/acceso-privado
+            401:
+                body:
+                    type: Respuesta
+                    example: #Ejemplo simple
+                        codigo: 401
+                        mensaje:usuario, password o challenge incorrecto
+
+
+/user/cambiar-password:
+    description: El endpoint para realizar el cambio de password.
+    post:
+        description: |
+            Metodo por el cual se cambia el password ingresando el password actual y confirmando el
+            nuevo password.
+        body: 
+            type: CambioPassword
+        responses: 
+            201:
+                body:
+                    type: RespuestaCambioPassword
+                    example: !include examples/201-cambio-password.json
+            401:
+                body:
+                    type: RespuestaCambioPassword
+                examples:
+                    password-incorrecto:
+                        description: Se devuelve un objeto JSON en el caso de que el password es incorrecto.
+                        displayName: Password incorrecto.
+                        value: !include examples/401-password-incorrecto.json
+                    password-no-coincide: !include examples/401-password-no-coincide.json
+                    password-difiere-reglas: !include examples/401-password-difiere-reglas.json

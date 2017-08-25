@@ -1,0 +1,16 @@
+#RAML 1.0 DataType
+type: object
+displayName: Objeto con credencial de usuario.
+properties:
+    usuario:
+        required: true
+        type: string
+        description: El nombre de usuario a iniciar sesion
+    password:
+        required: true
+        type: string
+        description: La contraseña para el usuario.
+    Challenge:
+        required: true
+        type: string
+        description: El numero de netkey.

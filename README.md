@@ -286,9 +286,12 @@ Ejemplo de definición de _API_ para el recurso login.
 
 [./examples/login/login.raml](./examples/login/login.raml)
 
+Ejemplo de API con _types_ y mensajes de respuesta.
+[./examples/mobile/api.raml](./examples/mobile/api.raml)
 
 
 # Referencias:
 * [raml.org](https://raml.org/)
 * [Tutorial RAML 1.0](http://www.baeldung.com/raml-restful-api-modeling-language-tutorial)
 * [Especificación de RAML](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md)
+* [Uso de types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#defining-types)

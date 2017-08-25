@@ -1,0 +1,16 @@
+#RAML 1.0 DataType
+type: object
+displayName: Objeto con la respuesta del backend.
+properties:
+    codigo:
+        required: true
+        type: number
+        description: Es el mismo que el HTTP STATUS CODE.
+    mensaje:
+        required: false
+        type: string
+        description: Mensaje que describe el resultado de la operacion realizada.
+    redirect:
+        required: false
+        type: string
+        description: URL a la cual se debe redireccionar el sitio.
