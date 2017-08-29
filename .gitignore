@@ -1,0 +1,2 @@
+#omitir dependencias de nodejs.
+examples/mobile/node_modules
