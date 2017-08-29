@@ -7,7 +7,6 @@
     "example": "examples"
   },
   "dependencies": {
-    "osprey": "^0.4.1",
     "osprey-mock-service": "^0.2.1"
   },
   "devDependencies": {},
