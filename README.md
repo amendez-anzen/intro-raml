@@ -293,6 +293,7 @@ Ejemplo de API con _types_ y mensajes de respuesta.
 
 # Herramientas:
 [Osprey mock service](https://github.com/mulesoft-labs/osprey-mock-service)
+[API Designer](http://rawgit.com/mulesoft/api-designer/master/dist/index.html#/?xDisableProxy=true)
 
 
 # Referencias:
