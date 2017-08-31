@@ -13,6 +13,14 @@ types:
     CambioPassword: !include types/CambioPassword.raml
     Respuesta: !include types/Respuesta.raml
     RespuestaCambioPassword: !include types/RespuestaCambioPassword.raml
+
+/public/dummy:
+    description: Recurso de ejemplo para mostrar el uso de headers.
+    get:
+        description: Uso de header en metodo GET.
+        headers:
+            hello-header:
+                enum: [ hello, world ]
 /user/login:
     description: Recurso para validar credencial de usuario.
     post:
