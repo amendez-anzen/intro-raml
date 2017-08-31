@@ -5,7 +5,9 @@ version: v1
 baseUri: https://mobile.api.com/{version}
 mediaType: application/json
 protocols: HTTPS
-
+securedBy: [ customHeader ]
+securitySchemes:
+    customHeader: !include securitySchemes/passThrough.raml
 types:
     CredencialUsuario: !include types/CredencialUsuario.raml
     CambioPassword: !include types/CambioPassword.raml
@@ -14,6 +16,7 @@ types:
 /user/login:
     description: Recurso para validar credencial de usuario.
     post:
+        securedBy: [null]  #omitir esquema de seguridad
         description: |
             Metodo por el cual se validan credenciales de un usuario.
         body: 
