@@ -16,11 +16,14 @@ types:
 
 /public/dummy:
     description: Recurso de ejemplo para mostrar el uso de headers.
-    get:
-        description: Uso de header en metodo GET.
+    post:
+        description: Uso de header en metodo POST.
         headers:
-            hello-header:
+            foo:
                 enum: [ hello, world ]
+            bar:
+                type: string
+                required: false
 /user/login:
     description: Recurso para validar credencial de usuario.
     post:
