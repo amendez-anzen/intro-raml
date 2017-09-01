@@ -20,7 +20,12 @@ Se requiere previamente descargar las dependecias de node, para esto ejecute una
 
 Para iniciar los servicios mock, ejecutar.
 
-> npm start
+> npm run start
+
+## Generar documentación
+
+Ejecutar
+> npm run api-doc
 
 
 ## Referencias

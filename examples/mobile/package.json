@@ -14,8 +14,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/osprey-mock-service -f api.raml -p 8080",
-    "api-doc": "node_modules/.bin/raml2html -i api.raml -o documentation.html"
+    "start": "osprey-mock-service -f api.raml -p 8080",
+    "api-doc": "raml2html -i api.raml -o documentation.html"
   },
   "author": "Angel Mendez <amendez@anzen.com.mx>",
   "license": "ISC"
