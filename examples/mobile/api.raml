@@ -5,9 +5,9 @@ version: v1
 baseUri: https://mobile.api.com/{version}
 mediaType: application/json
 protocols: HTTPS
-securedBy: [ customHeader ]
+securedBy: [ basicAuth ]
 securitySchemes:
-    customHeader: !include securitySchemes/custom-scheme.raml
+    basicAuth: !include securitySchemes/basic-authentication.raml
 types:
     CredencialUsuario: !include types/CredencialUsuario.raml
     CambioPassword: !include types/CambioPassword.raml
