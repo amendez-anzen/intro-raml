@@ -15,7 +15,15 @@ types:
     RespuestaCambioPassword: !include types/RespuestaCambioPassword.raml
 
 /public/dummy:
-    description: Recurso de ejemplo para mostrar el uso de headers.
+    description: Recurso de ejemplo para mostrar el uso de headers; al recurso no se le aplican esquemas de seguridad.
+    securedBy: [ null ]
+    get:
+        description: Uso de header en método GET, con header requerido de al menos 5 posiciones.
+        headers:
+            hello:
+                type: string
+                required: true
+                minLength: 5
     post:
         description: Uso de header en metodo POST.
         headers:
