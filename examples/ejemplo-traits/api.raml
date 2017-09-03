@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: Ejemplo de uso de características resourceType y traits.
+baseUri: http://www.example-traits-com/{version}
+version: v1
+mediaType: application/json
+types: 
+  Libro:
+    type: object
+    description: Objeto que describe a un libro.
+    properties:
+        titulo:
+            type: string
+            minLenght: 3
+        autor:
+            type: string
+            minLenght: 3
+        editorial:
+            type: string
+resourceTypes: 
+    collection:
+        usage: Usar este tipo de recurso para para representar una colección de elementos.
+        description: Colección de <<typeName>> disponibles.
+        get:
+            description: Obtener una lista de <<resourcePathName>>
+            responses:
+                200:
+                    body:
+                        application/json:
+                            type: <<typeName>>[] # Ejemplo: Libros
+        post:
+            description: Crear un nuevo <<resourcePathName|!singularize>>
+            responses:
+                201:
+                    body:
+                        application/json:
+                            type: <<typeName>> # Ejemplo: Libro
+
+/libros:
+    type:
+        collection:
+            typeName: Libro
+    get:
+    post:
