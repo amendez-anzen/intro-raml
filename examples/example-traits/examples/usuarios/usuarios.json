@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Angel Mendez",
+        "correo": "amendez@anzen.com.mx",
+        "empresa": "Anzen Digital"
+    },
+    {
+        "nombre": "Gabriel Lobato",
+        "correo": "gabriellobato@anzen.com.mx",
+        "empresa": "Anzen Digital"
+    },
+    {
+        "nombre": "Lenin Meza",
+        "correo": "lmeza@anzen.com.mx",
+        "empresa": "Anzen Digital"
+    }
+]

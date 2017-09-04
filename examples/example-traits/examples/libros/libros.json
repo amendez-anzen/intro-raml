@@ -1,0 +1,42 @@
+[
+    {
+        "titulo": "El principito",
+        "autor": "Antoine de Saint-Exupéry",
+        "editorial": "Fondo de cultura económica"
+    },
+    {
+        "titulo": "Demian",
+        "autor": "Herman Hesse",
+        "editorial": "Trillas"
+    },
+    {
+        "titulo": "El mono desnudo",
+        "autor": "Desmond Morris",
+        "editorial": "Alfaguara"
+    },
+    {
+        "titulo": "El gen egoísta",
+        "autor": "Richard Dawkins",
+        "editorial": "Salvat Ciencia"
+    },
+    {
+        "titulo": "Scrum: Doing twice the work in half the time",
+        "autor": "Jeff Sutherland",
+        "editorial": "Pearson Education"
+    },
+    {
+        "titulo": "El señor de los anillos",
+        "autor": "J. R. R. Tolkien",
+        "editorial": "Diana"
+    },
+    {
+        "titulo": "El libro de los 5 anillos",
+        "autor": "Miyamoto Musashi",
+        "editorial": "Diana"
+    },
+    {
+        "titulo": "Bushido",
+        "autor": "Inazo Nitobe",
+        "editorial": "Sunrise"
+    }
+]

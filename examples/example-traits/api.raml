@@ -4,20 +4,27 @@ baseUri: http://www.example-traits-com/{version}
 version: v1
 mediaType: application/json
 types: 
-  Libro:
-    type: object
-    description: Objeto que describe a un libro.
-    properties:
-        titulo:
-            type: string
-            minLenght: 3
-        autor:
-            type: string
-            minLenght: 3
-        editorial:
-            type: string
+    Libro:
+        type: object
+        description: Objeto que describe a un libro.
+        properties:
+            titulo:
+                type: string
+                minLength: 3
+            autor:
+                type: string
+                minLength: 3
+            editorial:
+                type: string
+    Usuario:
+        type: object
+        description: Objeto que describe a un usuario.
+        properties:
+            nombre: string
+            correo: string
+            empresa: string
 resourceTypes: 
-    collection:
+    coleccion:
         usage: Usar este tipo de recurso para para representar una colección de elementos.
         description: Colección de <<typeName>> disponibles.
         get:
@@ -27,17 +34,23 @@ resourceTypes:
                     body:
                         application/json:
                             type: <<typeName>>[] # Ejemplo: Libros
+                            example: <<exampleCollection>>
         post:
             description: Crear un nuevo <<resourcePathName|!singularize>>
+            body:
+                type: <<typeName>> # Ejemplo: Libro
             responses:
                 201:
                     body:
-                        application/json:
-                            type: <<typeName>> # Ejemplo: Libro
+                        type: <<typeName>> # Ejemplo: Libro
+                        example: <<exampleElement>>
 
 /libros:
     type:
-        collection:
+        coleccion:
             typeName: Libro
-    get:
-    post:
+            exampleElement: !include examples/libros/libro.json
+            exampleCollection: !include examples/libros/libros.json
+
+/usuarios: #Otra forma de usar notacion para resourceTypes
+    type: {coleccion: { typeName: Usuario, exampleElement: !include examples/usuarios/usuario.json, exampleCollection: !include examples/usuarios/usuarios.json}}
