@@ -282,17 +282,13 @@ En cambio, la siguiente definición es correcta:
 
 # RAML en acción.
 
-Ejemplo de definición de _API_ para el recurso login.
+A continuación se presentan algunos ejemplos de definiciones de _APIs_.
 
-[./examples/login/login.raml](./examples/login/login.raml)
+[Ejemplo de definición de _API_](./examples/login/login.raml)
 
-Ejemplo de API con _types_ y mensajes de respuesta.
+[Ejemplo con _types_ y _responses_](./examples/mobile/api.raml)
 
-[./examples/mobile/api.raml](./examples/mobile/api.raml)
-
-Ejemplo de _resourceTypes_.
-
-[./examples/example-resourcetypes/README.md](./examples/example-resourcetypes/README.md)
+[Ejemplo de _resourceTypes_](./examples/example-resourcetypes/README.md)
 
 
 
