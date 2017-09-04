@@ -291,6 +291,7 @@ Ejemplo de API con _types_ y mensajes de respuesta.
 [./examples/mobile/api.raml](./examples/mobile/api.raml)
 
 Ejemplo de _resourceTypes_.
+
 [./examples/example-resourcetypes/README.md](./examples/example-resourcetypes/README.md)
 
 
