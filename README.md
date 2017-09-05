@@ -11,6 +11,14 @@ describir recursos, métodos, parámetros, respuestas, _media types_ y otras con
 que conforman a las _APIs REST_ modernas.
 
 
+# Beneficios de usar una especificación de _API_.
+
+* Permite incorporar mejores prácticas de diseño.
+* Permite la reutilización de código.
+* Asegura la consistencia de tu _API_.
+* Entendible tanto por humanos como por máquinas.
+
+
 # Definiendo un _API_
 
 Crear un archivo de texto con extensión _.raml_ y agregar las siguientes líneas:
